@@ -1,0 +1,18 @@
+4
+AuthorA SubjectA
+AuthorB SubjectB
+AuthorC SubjectC
+AuthorD SubjectA
+2
+Staff UserA
+Borrower UserB 2
+UserA addBook
+AuthorE SubjectE
+UserA removeBook 4
+UserA checkout UserB
+0 1 2
+UserA return 0
+UserA listAuthor AuthorA
+UserA listSubject SubjectA
+UserA findChecked UserB
+UserA findBorrower 1

@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'LibrarySystem'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'core.LibrarySystemMain',
+        )
+    }
+}
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    baseName = "LibrarySystem"
+    version ''
+    from {
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
